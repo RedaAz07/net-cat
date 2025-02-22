@@ -3,11 +3,20 @@ package main
 import (
 	"fmt"
 	"net"
+	"os"
+
 	"net-cat/handlers"
 )
 
 func main() {
-	ln, err := net.Listen("tcp", ":8080")
+	port := ":8989"
+	if len(os.Args) > 2 {
+		return
+	}
+	if len(os.Args) == 2 {
+		port = ":" + os.Args[1]
+	}
+	ln, err := net.Listen("tcp",port)
 	if err != nil {
 		fmt.Println("error in listening  : ", err)
 		return
@@ -22,4 +31,3 @@ func main() {
 		go handlers.HandleConnection(conn)
 	}
 }
-
