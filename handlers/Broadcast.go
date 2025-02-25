@@ -1,16 +1,12 @@
-package helpers
+package handlers
 
 import (
 	"net"
 	"sync"
 )
 
-var (
-	Client = make(map[net.Conn]string, 10)
-)
-
 func Broadcast(message string, sender net.Conn) {
- var 	MU     sync.Mutex
+	var MU sync.Mutex
 
 	MU.Lock()
 
@@ -20,5 +16,4 @@ func Broadcast(message string, sender net.Conn) {
 			v.Write([]byte(message))
 		}
 	}
-
 }

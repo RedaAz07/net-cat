@@ -16,7 +16,7 @@ func main() {
 	if len(os.Args) == 2 {
 		port = ":" + os.Args[1]
 	}
-	ln, err := net.Listen("tcp",port)
+	ln, err := net.Listen("tcp", port)
 	if err != nil {
 		fmt.Println("error in listening  : ", err)
 		return
