@@ -1,3 +1,3 @@
-module net-cat
+module chat-app
 
 go 1.22.3
