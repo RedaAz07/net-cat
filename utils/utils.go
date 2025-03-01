@@ -3,11 +3,14 @@ package utils
 import (
 	"net"
 	"sync"
+	"time"
 )
 
 var (
+	Time    = time.Now().Format("2006-01-02 15:04:05")
+	Counter = 1
 	MU      sync.Mutex
-	Clients = make(map[net.Conn]string, 10)
+	Clients = make(map[net.Conn]string)
 
 	WelcomeMessage = "Welcome to TCP-Chat!\n" +
 		"         _nnnn_\n" +
@@ -27,4 +30,10 @@ var (
 		"\\____   )MMMMMP|   .'\n" +
 		"     -'       --'\n" +
 		"[ENTER YOUR NAME]:"
+)
+
+const (
+	Red   = "\033[31m"
+	Green = "\033[32m"
+	Reset = "\033[0m"
 )
