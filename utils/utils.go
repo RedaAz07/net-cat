@@ -11,6 +11,7 @@ var (
 	Counter = 1
 	MU      sync.Mutex
 	Clients = make(map[net.Conn]string)
+	History []string
 
 	WelcomeMessage = "Welcome to TCP-Chat!\n" +
 		"         _nnnn_\n" +
@@ -33,7 +34,9 @@ var (
 )
 
 const (
-	Red   = "\033[31m"
-	Green = "\033[32m"
-	Reset = "\033[0m"
+	Red    = "\033[31m"
+	Green  = "\033[32m"
+	Reset  = "\033[0m"
+	Yellow = "\033[33m"
+	Cyan   = "\033[36m"
 )

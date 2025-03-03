@@ -1,4 +1,4 @@
-# Chat App
+# Net-Cat
 
 A simple TCP-based chat application built using Golang. This project allows multiple clients to connect to a server and communicate in real time.
 
@@ -8,6 +8,7 @@ A simple TCP-based chat application built using Golang. This project allows mult
 - Welcome message broadcasted to all users when a new user joins
 - Message timestamps
 - Proper handling of client disconnections
+- Server logging system
 
 ## Installation & Setup
 
@@ -16,36 +17,36 @@ A simple TCP-based chat application built using Golang. This project allows mult
 
 ### Clone the Repository
 ```sh
-git clone https://github.com/yourusername/chat-app.git
-cd chat-app
+git clone https://github.com/yourusername/net-cat.git
+cd net-cat
 ```
 
 ### Run the Server
 ```sh
-go run cmd/server/main.go
-```
-
-### Run the Client
-Open multiple terminals and run:
-```sh
-go run cmd/client/main.go
+go run TCPchat/main.go
 ```
 
 ## Project Structure
 ```
-chat-app/
-├── cmd/
-│   ├── server/
-│   │   └── main.go
-│   ├── client/
-│   │   └── main.go
+NET-CAT/
 ├── internal/
 │   ├── helpers/
-│   │   ├── broadcast.go
+│   │   ├── Broadcating.go
+│   ├── logger/
+│   │   ├── logger.go
+│   ├── server/
+│   │   ├── server.go
 │   ├── validators/
-│   │   ├── input.go
+│   │   ├── validators.go
+├── logs/
+│   ├── server.log
+├── TCPchat/
+│   ├── main.go
 ├── utils/
-│   ├── globals.go
+│   ├── utils.go
+├── .gitignore
+├── go.mod
+├── network.md
 ├── README.md
 ```
 
@@ -57,12 +58,40 @@ chat-app/
 
 ## Example Output
 ```
-Welcome to the chat server!
-Enter your username: Alice
-Welcome 👋 Alice
-[2025-02-26 10:30:00] [Alice]: Hello everyone!
+Welcome to TCP-Chat!
+         _nnnn_
+        dGGGGMMb
+       @p~qp~~qMb
+       M|@||@) M|
+       @,----.JM|
+      JS^\__/  qKL
+     dZP        qKRb
+    dZP          qKKb
+   fZP            SMMb
+   HZM            MMMM
+   FqM            MMMM
+ __| ".        |\dS"qML
+ |    .       | ' \Zq
+_)      \.___.,|     .'
+\____   )MMMMMP|   .'
+     -'       --'
+[ENTER YOUR NAME]:ahmed
+[2025-03-02 11:41:28] [ahmed]: 
 ```
-
+```
+ahmed has joined the chat...
+[2025-03-02 11:41:18] [ahmed]: hello
+[2025-03-02 11:41:18] [ahmed]: salam
+reda has joined the chat...
+[2025-03-02 11:41:18] [reda]: bikhir
+[2025-03-02 11:41:18] [reda]: hanya
+[2025-03-02 11:41:18] [ahmed]: lahfdek
+[2025-03-02 11:42:28] [aymen]: 
+reda has left the chat...
+[2025-03-02 11:42:30] [aymen]: 
+ahmed has left the chat...
+[2025-03-02 11:42:31] [aymen]: 
+```
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 

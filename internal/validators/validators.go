@@ -3,7 +3,7 @@ package validators
 import (
 	"chat-app/utils"
 )
-
+// validators for usernames
 func ValidateLength(username string) bool {
 	if len(username) < 3 || len(username) > 15 {
 		return false
@@ -28,9 +28,9 @@ func SameName(username string) bool {
 	}
 	return true
 }
-
+// validators for meessages 
 func ValidateLengthMessage(message string) bool {
-	if len(message) < 1 || len(message) > 25 {
+	if len(message) < 1 || len(message) > 50 {
 		return false
 	}
 	return true
