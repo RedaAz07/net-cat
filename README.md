@@ -25,6 +25,10 @@ cd net-cat
 ```sh
 go run TCPchat/main.go
 ```
+### join the chat  
+```sh
+nc localhost port
+```
 
 ## Project Structure
 ```

@@ -13,9 +13,11 @@ import (
 )
 
 func Server(conn net.Conn) {
+	// welcom msg
 	conn.Write([]byte(utils.Cyan + utils.WelcomeMessage + utils.Reset))
 	var username string
 	var err error
+	// check the   valide username
 	for {
 		username, err = bufio.NewReader(conn).ReadString('\n')
 		if err != nil {
@@ -43,9 +45,10 @@ func Server(conn net.Conn) {
 		}
 		break
 	}
-
+	//  add to the client map
 	utils.MU.Lock()
 	utils.Clients[conn] = username
+	// write the history for the new users  && brodcast the message for all other users 
 	for _, message := range utils.History {
 		conn.Write([]byte(message))
 	}
@@ -54,6 +57,7 @@ func Server(conn net.Conn) {
 	helper.Broadcasting(utils.Green+fmt.Sprintf("\n%s has join the chat...\n"+utils.Reset, username), conn)
 
 	utils.History = append(utils.History, utils.Green+fmt.Sprintf("%s has joined the chat...\n"+utils.Reset, username))
+	//check valid msg &&  add to the history && brodcast the message 
 	for {
 		message, err := bufio.NewReader(conn).ReadString('\n')
 		if err != nil {
@@ -75,7 +79,7 @@ func Server(conn net.Conn) {
 		helper.Broadcasting(fmt.Sprintf("\n[%s] [%s]: %s\n", utils.Time, username, message), conn)
 	}
 }
-
+// close the conx  if someone  quit  the chat   
 func CloseConnection(conn net.Conn, username string) {
 	utils.MU.Lock()
 	if username != "" {
