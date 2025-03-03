@@ -17,7 +17,7 @@ A simple TCP-based chat application built using Golang. This project allows mult
 
 ### Clone the Repository
 ```sh
-git clone https://github.com/yourusername/net-cat.git
+git clone https://github.com/ranniz/net-cat.git
 cd net-cat
 ```
 
