@@ -51,7 +51,7 @@ func main() {
 		}
 		// Ensure that the chat is not full before accepting new clients
 		utils.MU.Lock()
-		if utils.Counter > 10 {
+		if utils.Counter > 4 {
 			logger.InfoLogger.Println("Chat is full. Try later...")
 			conn.Write([]byte(utils.Yellow + "Chat is full. Try later...\n" + utils.Reset))
 			conn.Close()
